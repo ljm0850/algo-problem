@@ -1,6 +1,3 @@
-import datetime
-a=datetime.datetime.now()
-
 M,N = map(int,input().split())
 solve=[2]
 
@@ -19,5 +16,24 @@ for s in solve:
     if s >= M:
         print(s)
 
-b=datetime.datetime.now()
-print(b-a)
+#친구에게 도움 받은 코드
+#M, N = map(int, input().split())
+# nums = [i for i in range(0,N+1)]
+# i=2
+# a=2
+# while a ** 2 <= N:
+#     j=2
+#     while a*j<=N:
+#         loc = a*j
+#         nums[loc] = -1
+#         j=j+1
+#     while True:
+#         i=i+1
+#         if nums[i] < 0:
+#             continue
+#         a = nums[i]
+#         break
+
+# for s in range(M,len(nums)):
+#     if nums[s] > 1:
+#         print(nums[s])
