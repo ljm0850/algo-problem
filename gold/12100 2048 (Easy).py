@@ -1,10 +1,9 @@
 import sys,copy
 from collections import deque
-def solve(target):
+def solve(target:list)->int:
     que = deque()
     que.append(target)
-    cnt = 0
-    ans = 0
+    cnt,ans = 0,0
     while cnt < 5:
         cnt += 1
         for _ in range(len(que)):
@@ -21,14 +20,14 @@ def solve(target):
         ans = target[0][0]
     return ans
 
-def move(way,arr):
+def move(way:int,arr:list)->list:
     # 진행방향 조절
     row,column = default,default
     if way == 0:
         row = row[::-1]
     elif way == 2:
         column = column[::-1]
-
+    # 결합
     for r in row:
         for c in column:
             # 진행방향과 반대되는 nr,nc
@@ -44,7 +43,7 @@ def move(way,arr):
                     nr,nc = nr-dr[way],nc-dc[way]
                     continue
                 break
-        # 결합이후 밑으로 내려갈 수 있으면 이동
+    # 결합이후 이동방향으로 이동 할 수 있으면 이동
     for r in row:
         for c in column:
             nr,nc = r + dr[way], c + dc[way]
@@ -55,7 +54,6 @@ def move(way,arr):
                     nr,nc = nr+dr[way],nc+dc[way]
             arr[r][c] = 0
             arr[nr-dr[way]][nc-dc[way]] = value
-
     return arr
 
 dr = (1,-1,0,0)
