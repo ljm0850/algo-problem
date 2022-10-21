@@ -2,6 +2,6 @@
 
 - BAEKJOON 문제를 푼것을 정리한 곳입니다
 
-- 난이도가 분류되지 않은것은 아직 못푼 문제들입니다
+- https://www.acmicpc.net/user/dlwoals0850
 
   
