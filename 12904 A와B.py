@@ -12,4 +12,3 @@ while True:
         T.pop()
         T.reverse()
 print(ans)
-    
