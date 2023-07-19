@@ -31,7 +31,6 @@ def solution(H:int)->int:
             C_node = target
             h = min(2,H+1)
             while (levels[C_node] > h):
-            # for _ in range(max(H -1,)):
                 C_node = parents[C_node]
 
             if levels[C_node] > H:
