@@ -19,6 +19,6 @@ for _ in range(M):
         else:
             solve.add(temp[1])
     elif temp[0] == 'all':
-        solve = call
+        solve = call.copy()
     else:
         solve.clear()
