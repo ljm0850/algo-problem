@@ -1,0 +1,41 @@
+from heapq import heappush,heappop
+import sys
+input = sys.stdin.readline
+
+def djikstra(start:int,maxLength:int):
+    shortcut = [maxLength]*(N+2)
+    h = [(0,start)]
+    while h:
+        length,nowNode = heappop(h)
+        if shortcut[nowNode] < length:
+            continue
+        for nextNode in road[nowNode]:
+            nextLength= length + roadLength[(nextNode,nowNode)]
+            if shortcut[nextNode] > nextLength:
+                shortcut[nextNode] = nextLength
+                heappush(h,(nextLength,nextNode))
+    ansIdx,ansLength = 0,0
+    for i in range(1,N+1):
+        if ansLength < shortcut[i]:
+            ansIdx,ansLength = i,shortcut[i]
+    return ansIdx,ansLength
+
+N,M,K = map(int,input().split())
+road = [set() for _ in range(N+2)]
+roadLength = dict()
+for _ in range(M):
+    U,V,C = map(int,input().split())
+    if U in road[V]:
+        roadLength[(U,V)] = min(roadLength[U][V],C)
+    else:
+        road[V].add(U)
+        roadLength[(U,V)] = C
+goal = set(map(int,input().split()))
+road[N+1].update(goal)
+for city in goal:
+    road[N+1].add(city)
+    roadLength[(city,N+1)] = 0
+maxLength = (N+1) * 100000
+ans = djikstra(N+1,maxLength)
+print(ans[0])
+print(ans[1])
