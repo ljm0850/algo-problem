@@ -4,7 +4,7 @@ def solve(N:int,memories:list[int],prices:list[int])->int:
     answer = 10000000001
     for idx in range(1,N+1):
         price,memory = prices[idx],memories[idx]
-        for now_cost in range(1,max_price):
+        for now_cost in range(max_price):
             if now_cost < price:
                 dp[idx][now_cost] = dp[idx-1][now_cost]
             else:
