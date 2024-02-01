@@ -1,0 +1,5 @@
+A,B = map(int,input().split())
+group_a = set(map(int,input().split()))
+group_b = set(map(int,input().split()))
+ans = len(group_a) + len(group_b) - 2*len(group_a & group_b)
+print(ans)
