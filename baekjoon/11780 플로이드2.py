@@ -5,7 +5,7 @@ def findPath(midArr:list[list[int]],graph,INF):
 
     for s in range(1,n+1):
         for e in range(1,n+1):
-            if graph[s][e] == 0 or graph[s][e] == INF:
+            if graph[s][e] == 0:
                 continue
             record[s][e] = recur(midArr,s,e,record)
     return record
